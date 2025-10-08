@@ -67,6 +67,35 @@ class Program
 
         //? ARRAY METHODS
 
-        
+        //* Sort
+        Sort("Array array"); // Sorts the elements in an entire one-dimensional array using the default comparer.
+        int[] numbers = { 5, 2, 8, 1 };
+        Array.Sort(numbers); // { 1, 2, 5, 8 }
+
+        //* Reverse
+        Reverse("Array array"); // Reverses the sequence of the elements in an entire one-dimensional array.
+        int[] numbers = { 1, 2, 3, 4 };
+        Array.Reverse(numbers); // { 4, 3,2 ,1 }
+
+        //* IndexOf
+        indexOf("Array array, object value"); // Searches for the specified object and returns the index of its first occurance in a one-dimensional array.
+        string[] fruits = { "apple", "banana", "orange" };
+        int bananaIndex = Array.IndexOf(fruits, "banana"); // 1
+
+        //* Find
+        Find("t[] array, Predicate<T> match"); // Searches for an element tat matches the conditions defined by the specified predicate, and returns the first
+                                               // Occurance within the entire array.
+        int[] numbers = { 1, 2, 3, 4, 5 }; int[] firstEven =
+        Array.Find(numbers, nameof => nameof % x == 0); // { 2 }
+
+        //* FindAll
+        FindAll("T[] array, Predicate<T> match"); // Retrieves all the elements that match the conditions defined by the specified predicate.
+        int[] numbers = { 1, 2, 3, 4, 5 }; int[] allEven =
+        Array.FindAll(numbers, nameof => nameof % 2 == 0); // { 2, 4 }
+
+        //* Exists 
+        Exists("T[] array, predicate<T> match"); // Determines whether the specified array contains elements that match the conditions defined by the specified predicate.
+        int[] numbers = { 1, 2, 3, 4, 5 }; bool hadEven =
+        Array.Exists(numbers, nameof => nameof % 2 == 0); // True
     }
 }
