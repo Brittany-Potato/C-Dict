@@ -97,5 +97,39 @@ class Program
         Exists("T[] array, predicate<T> match"); // Determines whether the specified array contains elements that match the conditions defined by the specified predicate.
         int[] numbers = { 1, 2, 3, 4, 5 }; bool hadEven =
         Array.Exists(numbers, nameof => nameof % 2 == 0); // True
+
+        //? MATH METHODS 
+
+        //* Abs
+        Abs("decimal Value"); // Returns the absoloute value of a specified number.
+        int absoloute = Math.Abs(-10); // 10
+
+        //* Max
+        Max("Val1, Val2"); // Returns the larger of the two numbers.
+        int larger = Math.Max(5, 10); // 10
+
+        //* Min
+        Min("Val1, Val2"); // Returns the smaller of the two numbers.
+        int smaller = Math.Min(5, 10); // 5
+
+        //* Pow
+        Pow("double x, double y"); // Returns a specified number raised to the specified power.
+        double result = Math.Pow(2, 3); // 8
+
+        //* Sqrt
+        Sqrt("double d"); // Returns the square root of a specified number.
+        double result = Math.Sqrt(25); // 5
+
+        //* Round
+        Round("Double a"); // Rounds a value to the nearest integer or to the specified number of fractional digits.
+        double rounded = Math.Round(3.14); // 3
+
+        //* Ceiling
+        Ceiling("Decimal d"); // Returns the largest integral value less than or equal to the specified decimal number.
+        double ceiling = Math.Ceiling(3.14); // 4
+
+        //* Floor
+        Floor("Decimal d"); // Returns the largest integral value less than or equal to the specified decimal number.
+        double floor = Math.Floor(3.14); // 3
     }
 }
