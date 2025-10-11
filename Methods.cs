@@ -1,4 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Data;
+using System.Runtime.InteropServices;
+
 Console.WriteLine("Hello, World!");
 
 class Program
@@ -131,5 +134,126 @@ class Program
         //* Floor
         Floor("Decimal d"); // Returns the largest integral value less than or equal to the specified decimal number.
         double floor = Math.Floor(3.14); // 3
+
+        //? LIST<T> METHODS 
+        // The List<T> is a versatile and dynamic collection that can growor shrink in size. It offers a rich set of methods for manipulation.
+
+        //* Add
+        Add("T item"); // Adds an object to the end of the List<T>.
+        List<string> fruits = new List<string>();
+        fruits.Add("apple");
+
+        //* AddRange
+        AddRange("TEnumerable<T> collection"); // Adds the elements of a specified collection to the end of the List<T>.
+        List<string> fruits = new List<string>(); string[] moreFruits =
+        { "banana", "orange" }; fruits.AddRange(moreFruits);
+
+        //* Remove
+        Remove("T item"); // Removes the first occurance of a specified object from the list<T>
+        List<string> fruits = new List<string> { "apple", "banana" };
+        fruits.Remove("apple");
+
+        //* RemoveAt
+        RemoveAt("int index"); // Removes the element at the specified index of the List<T>
+        List<string> fruits = new List<string> { "apple", "banana" };
+        fruits.RemoveAt(0);
+
+        //* Insert
+        Insert("int index, T item"); // Inserts an element into the list<T> at the specified index.
+        List<string> fruits = new List<string> { "apple", "orange" };
+        fruits.Insert(1, "banana"); // {"apple", "orange", "bananna"}
+
+        //* Contains
+        Contains("T items"); // Determines whether an element is in the List<T>.
+        List<string> fruits = new List<string> { "apple", "banana" };
+        bool hasApple = fruits.Contains("apple"); // True
+
+        //* Clear
+        Clear(); // Removes all elements from the List<T>.
+        List<string> fruits = new List<string> { "Apple", "banana" };
+        fruits.Clear(); // {} 
+
+        //* Sort
+        Sort(); // Sorts the lements in the entire List<T> using the default comparer.
+        List<int> numbers = new List<int> { 5, 2, 8, 1 };
+        numbers.Sort(); // {1, 2, 5, 8}
+
+        //* Reverse
+        Reverse(); // Reverses the order of the elemnts in the list<T>.
+        List<int> numbers = new List<int> { 1, 2, 3, 4 };
+        numbers.Reverse(); // {4, 3, 2, 1};
+
+
+        //? DICTIONARY <TKey, TValue> METHODS
+        // The Dictionary<TKey, TValue> is a collection of key-value pairs. Each key  must be unique.
+
+        //* Add
+        Add("TKey key, TValue value"); // Adds the specified key and value to the dictionary.
+        Dictionary<string, int> ages = new Dictionary<string, int>();
+        ages.Add("Alive", 30);
+
+        //* Remove
+        Remove("TKey, TValue"); // Removes the value with the specified value from the dictionary.
+        Dictionary<string, int> ages = new Dictionary<string, int>
+        {{ "alice", 30 }}; ages.Remove("Alice");
+
+        //* ContainsKey
+        ContainsKey("Tkey key"); // Determines whether the dictionary contains the specified key.
+        Dictionary<string, int> ages = new Dictionary<string, int>
+        {{"Alice", 30}}; bool hasAlice = ages.ContainsKey("Alice"); // False
+
+        //* ContainsValue
+        ContainsValue("TValue, value"); // Determines whether the dictionary contains the specified value.
+        Dictionary<string, int> ages = new Dictionary<string, int>
+        {{"Alice", 30}}; bool has30 = ages.ContainsValue(30);
+
+        //* TryGetValue
+        TryGetValue("TKey, out TValue value"); // Gets the value associated with the key. A more efficent way to retrieve values if the key may not exist.
+        Dictionary<string, int> ages = new Dictionary<string, int>
+        {{"Alice", 30}}; int age; if (ages.TryGetValue("Alice", out age)) {/* age is 30 */}
+
+        //* Clear
+        Clear(); // Removes all keys and values from the dictionary.
+        Dictionary<string, int> ages = new Dictionary<string, int>
+        {{"Alice", 30}}; ages.Clear();
+
+
+        //? FILE AN DIRECTORY METHODS
+
+        //* File -> Exists(string path) -> Determines whether the specified file exists.
+        bool fileExists = File.Exists("myFails.txt");
+
+        //* File -> ReadAllText(string path) -> Opens a text file, reads all the text in the file, and then closes the file.
+        string content = File.ReadAllText("myFile.txt");
+
+        //* File -> WriteAllText(string path, string contents) -> Creates a new file, writes the specified string to the file, and then closes the file.
+        //* If the file already exists, it is overwritten.
+        File.WriteAllText("myFile.txt", "Hello, C#");
+
+        //* File -> AppendAllText(string path, string contents) -> Appends the specified strign to the file, creating the file if it does not already exist.
+        FillErrorEventArgs.AppendAllText("myFile.txt", "This is new content");
+
+        //* File -> Copy(string courseFileName, string desFileName) -> Copies an existing file to a new file.
+        File.Copy("myFile.txt", "destination.txt");
+
+        //* File -> Delete(string path) -> Deletes the specified file.
+        File.Delete("myFile.txt");
+
+        //* Directory -> Exists(string path) -> Determines whether the given path refers to an existing directory on disk.
+        bool dirExists = Directory.Exists("myFolder");
+
+        //* Directiory -> CreateDirectory(string path) -> Creates all directories and subdirectories in the specified path.
+        Directory.CreateDirectory("newFolder");
+
+        //* Directory -> Delete(string path, bool recursive) -> Deletes a directory. If recursive is true, it deletes all subdirectoriesa and files.
+        Directory.Delete("myFolder", true);
+
+        //* Directory -> GetFiles(string path) -> Returns the names of files (including their paths) in the specified directory.
+        string[] files = Directory.GetFiles("myFolder");
+
+        //* Directory -> GetDirectories(strign path) -> Returns the names of subdirectories (Including teir paths) in the specified directory.
+        string[] dirs = Directory.GetDirectories("myFolder");
+
+        
     }
 }
